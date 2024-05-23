@@ -4,8 +4,6 @@ import getpass
 # Get login credentials
 username = input("Enter your username: ")
 password = getpass.getpass(prompt="Enter your password: ")
-# Habang di pa updated yung Portal
-numerical_anal_grade = float(input("Ano grade mo sa Numerical Anal?: "))
 
 weighted_grades = []
 total_units = 0
@@ -14,7 +12,6 @@ with sync_playwright() as playwright:
     browser = playwright.chromium.launch(headless=False)
     page = browser.new_page()
     page.goto('https://bulsu.priisms.online/')
-    print("Logging in to " + page.title())
 
     # Login and go to Grades
     page.get_by_placeholder("Username").locator('visible=true').fill(username)
@@ -34,6 +31,7 @@ with sync_playwright() as playwright:
         rows = page.query_selector_all("table.table tbody tr")
         for row in rows:
             subject_code = row.query_selector(":nth-match(td, 2)").text_content().strip()
+            # PE and NSTP grades are not counted in the GWA
             if "PE" in subject_code or "NSTP" in subject_code:
                 continue
             units = int(row.query_selector(":nth-match(td, 4)").text_content().strip())
@@ -41,11 +39,6 @@ with sync_playwright() as playwright:
             weighted_grade = grade * units
             weighted_grades.append(weighted_grade)
             total_units += units
-
-    # Temporary for NA
-    na_wg = numerical_anal_grade * 3
-    weighted_grades.append(na_wg)
-    total_units += 3
 
     # GWA Computation
     total_weighted_grades = 0
