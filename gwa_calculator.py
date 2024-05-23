@@ -42,10 +42,6 @@ with sync_playwright() as playwright:
             weighted_grade = grade * units
             weighted_grades.append(weighted_grade)
             total_units += units
-           
-           
-    
-
 
     # GWA Computation
     total_weighted_grades = 0
@@ -53,24 +49,21 @@ with sync_playwright() as playwright:
         total_weighted_grades += g
     computed_gwa = total_weighted_grades / total_units
     
-    #Latin Honors
-    honors = ''
-    
-    if computed_gwa <=1.2:
-        honors = 'Summa Cum Laude'
+    # Latin Honors
+    honors = ""
+    if computed_gwa <= 1.2:
+        honors = "Summa Cum Laude"
     elif 1.2 <= computed_gwa <= 1.45:
-        honors = 'Magna Cum Laude'
-    elif 1.45 <= computed_gwa <=1.75:
-        honors = 'Cum Laude'
-    else:
-        nt = "Better Luck Next Time :()"
+        honors = "Magna Cum Laude"
+    elif 1.45 <= computed_gwa <= 1.75:
+        honors = "Cum Laude"
+    nt = "You're not qualified for Latin honors. Better luck next time :)"
     
     # Output
-    print("Your GWA is ", round(computed_gwa, 4))
+    print("Your GWA is", round(computed_gwa, 4))
     if no_honors is False:
-        print ("Congrats you are:", honors)
+        print ("Congrats! You are", honors)
     else:
         print(nt)
-    
 
     browser.close()
