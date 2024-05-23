@@ -5,7 +5,7 @@ This script automates the process of logging into the BulSU portal, fetching you
 ## Requirements
 
 - Python 3.7+
-- [Playwright](https://playwright.dev/python/docs/intro) Python library
+- [Playwright](https://github.com/microsoft/playwright-python)
 
 ## Installation
 
@@ -31,13 +31,12 @@ This script automates the process of logging into the BulSU portal, fetching you
     python gwa_calculator.py
     ```
 
-2. Enter your BulSU Portal username and password when prompted.
+2. Enter your BulSU PRIISMS username and password when prompted.
 
-3. Enter your grade for Numerical Analysis (temporary while the portal is not updated).
-
-4. The script will log into the portal, fetch your grades, and compute your GWA.
+3. The script will log into the portal, fetch your grades, and compute your GWA.
 
 ## Notes
 
-- Make sure your internet connection is stable as the script interacts with the BulSU Portal online.
+- Make sure your internet connection is stable as the script interacts with the BulSU PRIISMS online.
+- This GWA calculator only takes into account grades that are posted in the BulSU PRIISMS.
 - Your credentials are not stored and are only used to log into the portal during the execution of the script.
