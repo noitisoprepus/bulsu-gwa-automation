@@ -16,24 +16,37 @@ This script automates the process of logging into the BulSU portal, fetching you
     cd gwa-calculator
     ```
 
-2. Install the required Python packages:
+2. (Optional) Create and activate a virtual environment:
 
     ```bash
-    pip install playwright
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
+
+3. Install the required Python packages from `requirements.txt`:
+
+    ```bash
+    pip install -r requirements.txt
     playwright install
     ```
 
 ## Usage
 
-1. Run the script:
+1. (If using a virtual environment) Activate the virtual environment:
+
+    ```bash
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
+
+2. Run the script:
 
     ```bash
     python gwa_calculator.py
     ```
 
-2. Enter your BulSU PRIISMS username and password when prompted.
+3. Enter your BulSU PRIISMS username and password when prompted.
 
-3. The script will log into the portal, fetch your grades, and compute your GWA.
+4. The script will log into the portal, fetch your grades, and compute your GWA.
 
 ## Notes
 
