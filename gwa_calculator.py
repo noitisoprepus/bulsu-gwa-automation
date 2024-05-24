@@ -51,17 +51,19 @@ def login_and_scrape(username, password):
         return grades, weighted_grades, total_units
 
 def calculate_gwa(weighted_grades, total_units):
+    if not weighted_grades:
+        return 0
     total_weighted_grades = sum(weighted_grades)
     computed_gwa = total_weighted_grades / total_units
-    return computed_gwa
+    return round(computed_gwa, 4)
 
 def check_latin_honors(computed_gwa, grades):
     honors = None
     if all(g <= 2 for g in grades) and computed_gwa <= 1.2:
         honors = "Summa Cum Laude"
-    elif all(g <= 2.25 for g in grades) and 1.2 < computed_gwa <= 1.45:
+    elif all(g <= 2.25 for g in grades) and computed_gwa <= 1.45:
         honors = "Magna Cum Laude"
-    elif all(g <= 2.5 for g in grades) and 1.45 < computed_gwa <= 1.75:
+    elif all(g <= 2.5 for g in grades) and computed_gwa <= 1.75:
         honors = "Cum Laude"
     return honors
 
@@ -74,7 +76,7 @@ if __name__ == "__main__":
     honors = check_latin_honors(computed_gwa, grades)
 
     # Output
-    print("Your GWA is", round(computed_gwa, 4))
+    print("Your GWA is", computed_gwa)
     if honors is not None:
         print("Congratulations! You are qualified for", honors)
     else:
