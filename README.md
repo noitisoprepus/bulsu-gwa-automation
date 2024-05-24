@@ -51,6 +51,7 @@ This script automates the process of logging into the BulSU portal, fetching you
 ## Notes
 
 - Subject to change depending on the design of BulSU PRIISMS.
+- Latin honors checking is based on BOR Resolution #47 Series of 2018.
 - Make sure your internet connection is stable as the script interacts with the BulSU PRIISMS online.
 - This GWA calculator only takes into account grades that are posted in the BulSU PRIISMS.
 - Your credentials are not stored and are only used to log into the portal during the execution of the script.
