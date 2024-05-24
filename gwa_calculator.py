@@ -52,7 +52,7 @@ def login_and_scrape(username, password):
 
 def calculate_gwa(weighted_grades, total_units):
     if not weighted_grades:
-        return 0
+        return None
     total_weighted_grades = sum(weighted_grades)
     computed_gwa = total_weighted_grades / total_units
     return round(computed_gwa, 4)
