@@ -51,7 +51,6 @@ def login_and_scrape(username, password):
         return grades, weighted_grades, total_units
 
 def calculate_gwa(weighted_grades, total_units):
-    # GWA Computation
     total_weighted_grades = sum(weighted_grades)
     computed_gwa = total_weighted_grades / total_units
     return computed_gwa
@@ -67,8 +66,8 @@ def check_latin_honors(computed_gwa, grades):
     return honors
 
 if __name__ == "__main__":
-    username = input("Enter your username: ")
-    password = getpass.getpass(prompt="Enter your password: ")
+    username = input("Enter your PRIISMS username: ")
+    password = getpass.getpass(prompt="Enter your PRIISMS password: ")
 
     grades, weighted_grades, total_units = login_and_scrape(username, password)
     computed_gwa = calculate_gwa(weighted_grades, total_units)
