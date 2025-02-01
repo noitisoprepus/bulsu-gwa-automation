@@ -2,6 +2,12 @@
 
 This script automates the process of logging into the BulSU portal, fetching your grades, and calculating your General Weighted Average (GWA).
 
+## Disclaimer
+
+The GWA output of this script is not accurate. My official GWA is different from what I got here. I don't know the official way of calculating GWA in BulSU.
+
+Also, this script is not being maintained and may stop working as BulSU PRIISMS change.
+
 ## Requirements
 
 - Python 3.7+
@@ -50,7 +56,6 @@ This script automates the process of logging into the BulSU portal, fetching you
 
 ## Notes
 
-- Subject to change depending on the design of BulSU PRIISMS.
 - Latin honors checking is based on BOR Resolution #47 Series of 2018.
 - Make sure your internet connection is stable as the script interacts with the BulSU PRIISMS online.
 - This GWA calculator only takes into account grades that are posted in the BulSU PRIISMS.
